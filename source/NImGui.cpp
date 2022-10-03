@@ -38,6 +38,7 @@ namespace NImGui
         
         if (flags & NImGui::TRANSPARENT)
         {
+            transparent = true;
             glfwWindowHint(GLFW_TRANSPARENT_FRAMEBUFFER, 1);
         }
 
@@ -89,7 +90,7 @@ namespace NImGui
     bool App::IsRunning()
     {
         glViewport(0, 0, windowsize.x, windowsize.y);
-        glClearColor(0, 0, 0, 1);
+        glClearColor(0, 0, 0, transparent ? 0 : 1);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         ImGui_ImplOpenGL3_NewFrame();
         #if defined(__DESKTOP__)

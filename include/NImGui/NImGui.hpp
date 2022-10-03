@@ -5,6 +5,9 @@
 #include <iostream>
 #include <string>
 
+#include <NImGui/Image.hpp>
+#include <NImGui/Timer.hpp>
+
 #if defined(__DESKTOP__)
 #include <glad.h>
 #include <GLFW/glfw3.h>
@@ -66,6 +69,7 @@ namespace NImGui
         std::string title;
         Vec2i windowpos;
         Vec2i windowsize;
+        bool transparent = false;
         #if defined(__DESKTOP__)
         GLFWwindow* win;
         #endif
