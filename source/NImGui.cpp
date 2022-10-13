@@ -2,7 +2,7 @@
 
 namespace NImGui
 {
-    App::App(std::string name, NWindowFlags flags)
+    App::App(std::string name, Vec2i size, NWindowFlags flags)
     {
         this->title = name;
         ImGui::CreateContext();
@@ -63,7 +63,7 @@ namespace NImGui
             glfwWindowHint(GLFW_MAXIMIZED, 1);
         }
         
-        win = glfwCreateWindow(700, 400, this->title.c_str(), NULL, NULL);
+        win = glfwCreateWindow(size.x, size.y, this->title.c_str(), NULL, NULL);
         if (flags & NImGui::BORDERLESSFULLSCREEN)
         {
             const GLFWvidmode *vm = glfwGetVideoMode(glfwGetPrimaryMonitor());
@@ -140,5 +140,15 @@ namespace NImGui
         }
         glfwSwapBuffers(win);
         #endif
+    }
+
+    void App::SetWindowSize(Vec2i size)
+    {
+        glfwSetWindowSize(win, size.x, size.y);
+    }
+
+    void App::SetWindowPos(Vec2i pos)
+    {
+        glfwSetWindowPos(win, pos.x, pos.y);
     }
 }

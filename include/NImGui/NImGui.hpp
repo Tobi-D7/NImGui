@@ -1,6 +1,6 @@
 #ifndef __NIMGUI_H__
 #define __NIMGUI_H__
-#define __DESKTOP__
+//#define __DESKTOP__
 //Basic Includes
 #include <iostream>
 #include <string>
@@ -57,11 +57,13 @@ namespace NImGui
     class App
     {
         public:
-        App(std::string name = "NImGui App", NWindowFlags flags = 0);
+        App(std::string name = "NImGui App", Vec2i size = Vec2i(700, 400), NWindowFlags flags = 0);
         ~App();
         bool IsRunning();
         Vec2i GetWindowSize();
         Vec2i GetWindowPos();
+        void SetWindowSize(Vec2i size);
+        void SetWindowPos(Vec2i pos);
         void SwapBuffers();
 
         private:
@@ -74,6 +76,7 @@ namespace NImGui
         GLFWwindow* win;
         #endif
     };
+    
 } // namespace NImGui
 
 
