@@ -151,4 +151,39 @@ namespace NImGui
     {
         glfwSetWindowPos(win, pos.x, pos.y);
     }
+
+    bool App::IsKeyDown(KeyCode keycode)
+    {
+        int state = glfwGetKey(win, (int)keycode);
+		return state == GLFW_PRESS || state == GLFW_REPEAT;
+    }
+
+    bool App::IsMouseButtonDown(MouseButton button)
+    {
+        int state = glfwGetMouseButton(win, (int)button);
+		return state == GLFW_PRESS;
+    }
+    
+    Vec2f App::GetMousePosition()
+    {
+        double x, y;
+		glfwGetCursorPos(win, &x, &y);
+		return { (float)x, (float)y };
+    }
+    
+    void App::SetCursorMode(CursorMode mode)
+    {
+        glfwSetInputMode(win, GLFW_CURSOR, GLFW_CURSOR_NORMAL + (int)mode);
+    }
+
+    void App::SetVsync(bool vs)
+    {
+        vsync = vs;
+        glfwSwapInterval((int)vsync);   
+    }
+
+    bool App::GetVsync()
+    {
+        return vsync;
+    }
 }

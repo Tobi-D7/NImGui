@@ -1,12 +1,13 @@
 #ifndef __NIMGUI_H__
 #define __NIMGUI_H__
-//#define __DESKTOP__
+#define __DESKTOP__
 //Basic Includes
 #include <iostream>
 #include <string>
 
 #include <NImGui/Image.hpp>
 #include <NImGui/Timer.hpp>
+#include <NImGui/KeyCodes.hpp>
 
 #if defined(__DESKTOP__)
 #include <glad.h>
@@ -65,6 +66,14 @@ namespace NImGui
         void SetWindowSize(Vec2i size);
         void SetWindowPos(Vec2i pos);
         void SwapBuffers();
+        void SetVsync(bool vs);
+        bool GetVsync();
+
+        //Input
+        bool IsKeyDown(KeyCode keycode);
+		bool IsMouseButtonDown(MouseButton button);
+        Vec2f GetMousePosition();
+        void SetCursorMode(CursorMode mode);
 
         private:
         void UpdateContext();
@@ -72,6 +81,7 @@ namespace NImGui
         Vec2i windowpos;
         Vec2i windowsize;
         bool transparent = false;
+        bool vsync = true;
         #if defined(__DESKTOP__)
         GLFWwindow* win;
         #endif
