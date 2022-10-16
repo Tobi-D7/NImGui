@@ -69,6 +69,7 @@ namespace NImGui
         void SwapBuffers();
         void SetVsync(bool vs);
         bool GetVsync();
+        void LoadIcon(std::string path);
 
         //Input
         bool IsKeyDown(KeyCode keycode);

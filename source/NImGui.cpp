@@ -192,4 +192,20 @@ namespace NImGui
         const GLFWvidmode * vm = glfwGetVideoMode(glfwGetPrimaryMonitor());
         return Vec2i(vm->width, vm->height);
     }
+
+    void App::LoadIcon(std::string path)
+    {
+        int w, h;
+        GLFWimage img[1];
+        img->pixels = stbi_load(path.c_str(), &w, &h, 0, 4);
+        if(img->pixels == NULL)
+        {
+            std::cout << "Failed to load " << path << std::endl;
+            return;
+        }
+        //img->width = w;
+        //img->height = h;
+        glfwSetWindowIcon(win, 1, img);
+        stbi_image_free(img->pixels);
+    }
 }
