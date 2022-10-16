@@ -208,4 +208,11 @@ namespace NImGui
         glfwSetWindowIcon(win, 1, img);
         stbi_image_free(img->pixels);
     }
+
+    void App::SetFullScreen(bool fsc)
+    {
+        GLFWmonitor *mw = glfwGetPrimaryMonitor();
+        const GLFWvidmode * vm = glfwGetVideoMode(mw);
+        glfwSetWindowMonitor(win, mw, 0, 0, vm->width, vm->height, vm->refreshRate);
+    }
 }

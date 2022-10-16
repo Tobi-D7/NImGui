@@ -70,6 +70,7 @@ namespace NImGui
         void SetVsync(bool vs);
         bool GetVsync();
         void LoadIcon(std::string path);
+        void SetFullScreen(bool fsc);
 
         //Input
         bool IsKeyDown(KeyCode keycode);
