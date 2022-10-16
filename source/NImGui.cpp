@@ -186,4 +186,10 @@ namespace NImGui
     {
         return vsync;
     }
+
+    Vec2i App::GetMonitorSize()
+    {
+        const GLFWvidmode * vm = glfwGetVideoMode(glfwGetPrimaryMonitor());
+        return Vec2i(vm->width, vm->height);
+    }
 }

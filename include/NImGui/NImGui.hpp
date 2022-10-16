@@ -63,6 +63,7 @@ namespace NImGui
         bool IsRunning();
         Vec2i GetWindowSize();
         Vec2i GetWindowPos();
+        Vec2i GetMonitorSize();
         void SetWindowSize(Vec2i size);
         void SetWindowPos(Vec2i pos);
         void SwapBuffers();
