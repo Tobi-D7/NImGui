@@ -6,7 +6,7 @@
 #endif
 #include <string>
 
-#include <NImGui/stb_image.h>
+#include <stb_image.h>
 
 #include <imgui.h>
 

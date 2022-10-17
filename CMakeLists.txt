@@ -22,6 +22,8 @@ external/imgui/imgui_tables.cpp
 external/imgui/imgui_widgets.cpp
 external/imgui/backends/imgui_impl_opengl3.cpp)
 
+include_directories(external)
+
 set(NIMGUI_EXTRAINCLUDES "")
 set(NIMGUI_EXTRADEPS "")
 
@@ -54,7 +56,7 @@ endif()
 #Add external glfw library
 add_library(${PROJECT_NAME} STATIC ${NIMGUI_SOURCE})
 
-target_include_directories(${PROJECT_NAME} PUBLIC include external/imgui ${NIMGUI_EXTRAINCLUDES})
+target_include_directories(${PROJECT_NAME} PUBLIC include external external/imgui ${NIMGUI_EXTRAINCLUDES})
 
 target_link_libraries(${PROJECT_NAME} ${NIMGUI_EXTRADEPS})
 
