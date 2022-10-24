@@ -54,10 +54,10 @@ if(NIMGUI_PLATFORM_DESKTOP)
 endif()
 
 #Add external glfw library
-add_library(${PROJECT_NAME} STATIC ${NIMGUI_SOURCE})
+add_library(${PROJECT_NAME} ${NIMGUI_SOURCE})
 
 target_include_directories(${PROJECT_NAME} PUBLIC include external external/imgui ${NIMGUI_EXTRAINCLUDES})
 
-target_link_libraries(${PROJECT_NAME} ${NIMGUI_EXTRADEPS})
+target_link_libraries(${PROJECT_NAME} PUBLIC ${NIMGUI_EXTRADEPS})
 
 target_compile_options(${PROJECT_NAME} PUBLIC ${NIMGUI_CFLAGS})

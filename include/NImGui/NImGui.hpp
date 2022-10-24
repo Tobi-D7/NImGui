@@ -1,6 +1,10 @@
 #ifndef __NIMGUI_H__
 #define __NIMGUI_H__
+#if __DESKTOP__
+
+#else
 #define __DESKTOP__
+#endif
 //Basic Includes
 #include <iostream>
 #include <string>
