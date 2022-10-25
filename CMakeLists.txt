@@ -38,6 +38,7 @@ endif()
 if(NIMGUI_PLATFORM_DESKTOP)
     #Setup GLFW
     add_subdirectory(external/glfw glfw)
+    set(GLFW_LIBRARY_TYPE "STATIC" CACHE BOOL "Don't want a glfw3.dll/so")
     set(NIMGUI_SOURCE
     ${NIMGUI_SOURCE}
     #OpenGL Support(3.3+)
