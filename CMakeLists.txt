@@ -37,7 +37,7 @@ if(IMGUI_STD)
 endif()
 if(NIMGUI_PLATFORM_DESKTOP)
     #Setup GLFW
-    set(GLFW_LIBRARY_TYPE "STATIC" CACHE BOOL "Don't want a glfw3.dll/so")
+    set(GLFW_LIBRARY_TYPE "STATIC" CACHE STRING "Don't want a glfw3.dll/so")
     add_subdirectory(external/glfw glfw)
     set(NIMGUI_SOURCE
     ${NIMGUI_SOURCE}
