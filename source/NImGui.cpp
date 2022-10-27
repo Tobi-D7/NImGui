@@ -206,7 +206,6 @@ namespace NImGui
         //img->width = w;
         //img->height = h;
         glfwSetWindowIcon(win, 1, img);
-        stbi_image_free(img->pixels);
     }
 
     void App::SetFullScreen(bool fsc)
