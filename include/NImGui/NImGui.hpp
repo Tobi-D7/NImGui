@@ -13,6 +13,9 @@
 #include <NImGui/Timer.hpp>
 #include <NImGui/KeyCodes.hpp>
 
+//Adobe Design
+#include <NImGui/spectrum.hpp>
+
 #if defined(__DESKTOP__)
 #include <glad.h>
 #include <GLFW/glfw3.h>

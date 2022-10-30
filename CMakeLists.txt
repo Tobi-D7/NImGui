@@ -13,6 +13,8 @@ set(NIMGUI_CFLAGS "")
 
 set(NIMGUI_SOURCE
 source/NImGui.cpp
+source/Image.cpp
+source/spectrum.cpp
 source/stb.cpp
 #ImGui Sources
 external/imgui/imgui.cpp
