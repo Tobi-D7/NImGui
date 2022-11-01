@@ -8,21 +8,20 @@
 
 #include <imgui.h>
 
-namespace NImGui
-{
-    class Image
-    {
-        public:
-            Image(std::string path = "");
-            ~Image();
-            void LoadImage(std::string path);
-            void LoadBuffer(std::vector<unsigned char> buffer, int w, int h, int bpp = 4);
-            ImTextureID GetTextureID();
+namespace NImGui {
+class Image {
+public:
+  Image(std::string path = "");
+  ~Image();
+  void LoadImage(std::string path);
+  void LoadBuffer(std::vector<unsigned char> buffer, int w, int h, int bpp = 4);
+  ImTextureID GetTextureID();
 
-            ImVec2 GetSize();
-        private:
-        ImVec2 size;
-        unsigned regid = 0;
-    };
-}
+  ImVec2 GetSize();
+
+private:
+  ImVec2 size;
+  unsigned regid = 0;
+};
+} // namespace NImGui
 #endif // __IMAGE_H__
