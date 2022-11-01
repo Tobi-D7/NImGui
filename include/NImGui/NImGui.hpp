@@ -18,9 +18,9 @@
 #include <NImGui/spectrum.hpp>
 
 #if defined(__DESKTOP__)
+#include <glad.h>
 #include <GLFW/glfw3.h>
 #include <backends/imgui_impl_glfw.h>
-#include <glad.h>
 
 #endif
 
