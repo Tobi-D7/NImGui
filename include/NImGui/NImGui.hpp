@@ -17,6 +17,7 @@
 #include <NImGui/spectrum.hpp>
 
 #if defined(__DESKTOP__)
+#define GLFW_INCLUDE_NONE
 #include <GLFW/glfw3.h>
 #include <backends/imgui_impl_glfw.h>
 #include <glad.h>
@@ -99,7 +100,7 @@ private:
   std::string title;
   Vec2i windowpos;
   Vec2i windowsize;
-  Vec4f clearcl = Vec4(0, 0, 0, 0);
+  Vec4f clearcl = Vec4f(0, 0, 0, 0);
   bool transparent = false;
   bool vsync = true;
 #if defined(__DESKTOP__)
