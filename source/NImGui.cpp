@@ -83,7 +83,7 @@ App::~App() {
 
 bool App::IsRunning() {
   glViewport(0, 0, windowsize.x, windowsize.y);
-  glClearColor(0, 0, 0, transparent ? 0 : 1);
+  glClearColor(clearcl.x, clearcl.y, clearcl.z, clearcl.w);
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
   ImGui_ImplOpenGL3_NewFrame();
 #if defined(__DESKTOP__)

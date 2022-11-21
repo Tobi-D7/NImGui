@@ -13,14 +13,13 @@
 #include <NImGui/KeyCodes.hpp>
 #include <NImGui/Timer.hpp>
 
-
 // Adobe Design
 #include <NImGui/spectrum.hpp>
 
 #if defined(__DESKTOP__)
-#include <glad.h>
 #include <GLFW/glfw3.h>
 #include <backends/imgui_impl_glfw.h>
+#include <glad.h>
 
 #endif
 
@@ -58,6 +57,19 @@ struct Vec2f {
   float y;
 };
 
+struct Vec4f {
+  Vec4f(float ix = 0, float iy = 0, float iz = 0, float iw = 0) {
+    x = ix;
+    y = iy;
+    z = iz;
+    w = iw;
+  }
+  float x;
+  float y;
+  float z;
+  float w;
+};
+
 class App {
 public:
   App(std::string name = "NImGui App", Vec2i size = Vec2i(700, 400),
@@ -74,7 +86,8 @@ public:
   bool GetVsync();
   void LoadIcon(std::string path);
   void SetFullScreen(bool fsc);
-
+  inline Vec4f GetClearColor() { return clearcl; }
+  inline void SetClearColor(Vec4f col) { clearcl = col; }
   // Input
   bool IsKeyDown(KeyCode keycode);
   bool IsMouseButtonDown(MouseButton button);
@@ -86,6 +99,7 @@ private:
   std::string title;
   Vec2i windowpos;
   Vec2i windowsize;
+  Vec4f clearcl = Vec4(0, 0, 0, 0);
   bool transparent = false;
   bool vsync = true;
 #if defined(__DESKTOP__)
