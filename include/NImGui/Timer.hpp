@@ -5,7 +5,6 @@
 #include <iostream>
 #include <string>
 
-
 namespace NImGui {
 
 class Timer {

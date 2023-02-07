@@ -4,7 +4,6 @@
 #include <iostream>
 #include <stdint.h>
 
-
 namespace NImGui {
 
 typedef enum class KeyCode : uint16_t {
