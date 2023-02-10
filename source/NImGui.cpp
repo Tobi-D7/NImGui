@@ -166,16 +166,16 @@ Vec2i App::GetMonitorSize() {
   return Vec2i(vm->width, vm->height);
 }
 
-void App::LoadIcon(std::string path) {
+void App::SetIcon(std::string path) {
   int w, h;
   GLFWimage img[1];
-  img->pixels = stbi_load(path.c_str(), &w, &h, 0, 4);
+  img[0].pixels = stbi_load(path.c_str(), &w, &h, 0, 4);
   if (img->pixels == NULL) {
     std::cout << "Failed to load " << path << std::endl;
     return;
   }
-  // img->width = w;
-  // img->height = h;
+  img[0].width = w;
+  img[0].height = h;
   glfwSetWindowIcon(win, 1, img);
 }
 

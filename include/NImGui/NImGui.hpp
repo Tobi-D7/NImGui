@@ -91,7 +91,7 @@ public:
   void SwapBuffers();
   void SetVsync(bool vs);
   bool GetVsync();
-  void LoadIcon(std::string path);
+  void SetIcon(std::string path);
   void SetFullScreen(bool fsc);
   inline Vec4f GetClearColor() { return clearcl; }
   inline void SetClearColor(Vec4f col) { clearcl = col; }
