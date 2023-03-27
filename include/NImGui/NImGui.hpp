@@ -92,6 +92,7 @@ public:
   void SetVsync(bool vs);
   bool GetVsync();
   void SetIcon(std::string path);
+  void SetMemIcon(std::vector<unsigned char> t_buffer);
   void SetFullScreen(bool fsc);
   inline Vec4f GetClearColor() { return clearcl; }
   inline void SetClearColor(Vec4f col) { clearcl = col; }

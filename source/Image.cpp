@@ -16,8 +16,7 @@ Image::Image(std::string path) {
 }
 Image::~Image() { Destroy(); }
 
-void NImGui::Image::Destroy()
-{
+void NImGui::Image::Destroy() {
   /// Check if OpenGL is still loadet (bzw GLFW) to not crash
   if ((glfwGetCurrentContext()) != NULL) {
     if (regid) {
@@ -134,14 +133,13 @@ void Image::LoadBuffer(std::vector<unsigned char> buffer, int w, int h,
   }
 }
 
-void NImGui::Image::LoadFromMem(std::vector<unsigned char> buffer)
-{
+void NImGui::Image::LoadFromMem(std::vector<unsigned char> buffer) {
   unsigned int textureID;
   glGenTextures(1, &textureID);
 
   int width, height, nrComponents;
-  unsigned char *data =
-      stbi_load_from_memory(buffer.data(), buffer.size(), &width, &height, &nrComponents, 0);
+  unsigned char *data = stbi_load_from_memory(
+      buffer.data(), buffer.size(), &width, &height, &nrComponents, 0);
   if (data) {
     GLenum format;
     if (nrComponents == 1)

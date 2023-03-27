@@ -184,4 +184,18 @@ void App::SetFullScreen(bool fsc) {
   const GLFWvidmode *vm = glfwGetVideoMode(mw);
   glfwSetWindowMonitor(win, mw, 0, 0, vm->width, vm->height, vm->refreshRate);
 }
+
+void App::SetMemIcon(std::vector<unsigned char> t_buffer) {
+  int w, h;
+  GLFWimage img[1];
+  img[0].pixels =
+      stbi_load_from_memory(t_buffer.data(), t_buffer.size(), &w, &h, 0, 4);
+  if (img->pixels == NULL) {
+    std::cout << "Failed to load icon from Memory!" << std::endl;
+    return;
+  }
+  img[0].width = w;
+  img[0].height = h;
+  glfwSetWindowIcon(win, 1, img);
+}
 } // namespace NImGui
