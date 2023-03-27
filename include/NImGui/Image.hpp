@@ -15,6 +15,7 @@ public:
   ~Image();
   void LoadImage(std::string path);
   void LoadBuffer(std::vector<unsigned char> buffer, int w, int h, int bpp = 4);
+  void LoadFromMem(std::vector<unsigned char> buffer);
   ImTextureID GetTextureID();
 
   ImVec2 GetSize();
