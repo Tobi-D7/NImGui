@@ -2,7 +2,10 @@
 #include <iostream>
 
 #if defined(__DESKTOP__)
+#define GLFW_INCLUDE_NONE
+#include <GLFW/glfw3.h>
 #include <glad.h>
+
 #endif
 
 namespace NImGui {
@@ -11,7 +14,19 @@ Image::Image(std::string path) {
     LoadImage(path);
   }
 }
-Image::~Image() { glDeleteTextures(1, &regid); }
+Image::~Image() { Destroy(); }
+
+void NImGui::Image::Destroy()
+{
+  /// Check if OpenGL is still loadet (bzw GLFW) to not crash
+  if ((glfwGetCurrentContext()) != NULL) {
+    if (regid) {
+      glDeleteTextures(1, &regid);
+      regid = 0;
+    }
+  }
+}
+
 void Image::LoadImage(std::string path) {
   unsigned int textureID;
   glGenTextures(1, &textureID);

@@ -17,6 +17,7 @@ public:
   void LoadBuffer(std::vector<unsigned char> buffer, int w, int h, int bpp = 4);
   void LoadFromMem(std::vector<unsigned char> buffer);
   ImTextureID GetTextureID();
+  void Destroy();
 
   ImVec2 GetSize();
 
