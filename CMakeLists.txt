@@ -38,9 +38,6 @@ if(IMGUI_STD)
     external/imgui/misc/cpp)
 endif()
 if(NIMGUI_PLATFORM_DESKTOP)
-    #Setup GLFW
-    set(GLFW_LIBRARY_TYPE "STATIC" CACHE STRING "Don't want a glfw3.dll/so")
-    add_subdirectory(external/glfw glfw)
     set(NIMGUI_SOURCE
     ${NIMGUI_SOURCE}
     #OpenGL Support(3.3+)
@@ -49,10 +46,10 @@ if(NIMGUI_PLATFORM_DESKTOP)
     set(NIMGUI_EXTRAINCLUDES
     ${NIMGUI_EXTRAINCLUDES}
     external/glad
-    glfw)
+    GLFW_INCLUDE_DIRS)
     set(NIMGUI_EXTRADEPS
     ${NIMGUI_EXTRADEPS}
-    glfw)
+    GLFW_LIBRARIES)
     list(APPEND NIMGUI_CFLAGS -D__DESKTOP__)
 endif()
 
