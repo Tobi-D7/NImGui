@@ -172,7 +172,7 @@ void NImGui::Image::LoadFromMem(std::vector<unsigned char> buffer) {
   }
 }
 
-ImTextureID Image::GetTextureID() { return (ImTextureID)regid; }
+ImTextureID Image::GetTextureID() { return reinterpret_cast<ImTextureID>(regid); }
 
 ImVec2 Image::GetSize() { return size; }
 } // namespace NImGui
