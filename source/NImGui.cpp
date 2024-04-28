@@ -85,6 +85,9 @@ App::~App() {
 }
 
 bool App::IsRunning() {
+  if(fstate == 1) {
+    this->SwapBuffers();
+  }
   glViewport(0, 0, windowsize.x, windowsize.y);
   glClearColor(clearcl.x, clearcl.y, clearcl.z, clearcl.w);
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -93,11 +96,13 @@ bool App::IsRunning() {
   ImGui_ImplGlfw_NewFrame();
 #endif
   ImGui::NewFrame();
+  fstate = 1;
 #if defined(__DESKTOP__)
   this->UpdateContext();
   glfwPollEvents();
   return !glfwWindowShouldClose(this->win);
 #endif
+  return true;
 }
 
 void App::UpdateContext() {
@@ -128,6 +133,7 @@ void App::SwapBuffers() {
   }
   glfwSwapBuffers(win);
 #endif
+  this->fstate = 2;
 }
 
 void App::SetWindowSize(Vec2i size) { glfwSetWindowSize(win, size.x, size.y); }

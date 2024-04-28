@@ -110,6 +110,7 @@ private:
   Vec4f clearcl = Vec4f(0, 0, 0, 0);
   bool transparent = false;
   bool vsync = true;
+  int fstate = 0;
 #if defined(__DESKTOP__)
   GLFWwindow *win;
 #endif
