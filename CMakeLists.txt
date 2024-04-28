@@ -38,8 +38,7 @@ if(IMGUI_STD)
     external/imgui/misc/cpp)
 endif()
 if(NIMGUI_PLATFORM_DESKTOP)
-    find_package(PkgConfig REQUIRED)
-    pkg_search_module(GLFW REQUIRED glfw3)
+    add_subdirectory(external/glfw)
     set(NIMGUI_SOURCE
     ${NIMGUI_SOURCE}
     #OpenGL Support(3.3+)
@@ -51,7 +50,7 @@ if(NIMGUI_PLATFORM_DESKTOP)
     ${GLFW_INCLUDE_DIRS})
     set(NIMGUI_EXTRADEPS
     ${NIMGUI_EXTRADEPS}
-    ${GLFW_LIBRARIES})
+    glfw)
     list(APPEND NIMGUI_CFLAGS -D__DESKTOP__)
 endif()
 
